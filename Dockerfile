@@ -46,6 +46,7 @@ RUN apt-get update && apt-get install -y \
     byacc \
     libibumad-dev \
     libibumad3 \
+    infiniband-diags \
     flex
 RUN curl -O http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
 RUN tar xvf mvapich2-2.1.tar.gz
