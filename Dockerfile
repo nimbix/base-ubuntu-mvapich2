@@ -29,7 +29,7 @@
 # Author: Stephen Fox (stephen.fox@nimbix.net)
 #
 
-FROM jarvice/nimbix_scientific_base:trusty
+FROM nimbix/ubuntu-cuda:trusty
 MAINTAINER stephen.fox@nimbix.net
 
 WORKDIR /usr/local/src
