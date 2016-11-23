@@ -38,6 +38,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     libibverbs-dev \
     libibverbs1 \
+    libibcm1 \
     librdmacm1 \
     librdmacm-dev \
     rdmacm-utils \
@@ -48,13 +49,16 @@ RUN apt-get update && apt-get install -y \
     libibumad3 \
     infiniband-diags \
     libmlx5-1 \
-    libmlx5-dev \    
+    libmlx5-dev \
+    perftest \
+    ibverbs-utils \
+    opensm \
     flex
 RUN curl -O http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.1.tar.gz
 RUN tar xvf mvapich2-2.1.tar.gz
 
 WORKDIR /usr/local/src/mvapich2-2.1
-RUN ./configure --enable-rdma-cm MV2_USE_CUDA=1 RSH_CMD=/usr/bin/ssh SSH_CMD=/usr/bin/ssh
+RUN ./configure MV2_USE_CUDA=1 RSH_CMD=/usr/bin/ssh SSH_CMD=/usr/bin/ssh
 RUN make -j4
 RUN make install
 
